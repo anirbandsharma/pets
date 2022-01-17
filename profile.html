@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/profile.css">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    var maxLength = 300;
+    $(".show-read-more").each(function(){
+        var myStr = $(this).text();
+        if($.trim(myStr).length > maxLength){
+            var newStr = myStr.substring(0, maxLength);
+            var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+            $(this).empty().html(newStr);
+            $(this).append(' <a href="javascript:void(0);" class="read-more">...read more</a>');
+            $(this).append('<span class="more-text">' + removedStr + '</span>');
+        }
+    });
+    $(".read-more").click(function(){
+        $(this).siblings(".more-text").contents().unwrap();
+        $(this).remove();
+    });
+});
+</script>
+<style>
+    .show-read-more .more-text{
+        display: none;
+    }
+</style>
+
+</head>
+<body>
+    <div class="top-nav">
+        <span onclick="window.history.go(-1); return false;" class="material-icons">
+            arrow_back
+            </span>
+    </div>
+    <div class="image">
+        <img src="images/cat.jpg" alt="">
+    </div>
+   <div class="content">
+       <div class="content-head">
+       <h2>Elizabeth</h2>
+       <p><span class="material-icons" style="color: var(--clr-primary);">
+        place
+        </span> Jorhat</p>
+        </div>
+<br>
+        <div class="details">
+            <div class="details-box">
+                <p>Age</p>
+                <p>3 years</p>
+            </div>
+            <div class="details-box">
+                <p>Sex</p>
+                <p>Female</p>
+            </div>
+            <div class="details-box">
+                <p>Weight</p>
+                <p>7 kg</p>
+            </div>
+        </div>
+<br>
+        <div class="story">
+            <h3>Pet Story</h3>
+            <p class="show-read-more">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum cum temporibus dolores quam nemo enim corporis eaque, fuga neque necessitatibus debitis veritatis voluptates animi suscipit molestiae reprehenderit vel, incidunt quia nihil excepturi veniam accusantium praesentium dolor. Excepturi facere nesciunt ducimus, accusantium eos culpa ipsum. Ducimus impedit maxime fugit ratione, soluta maiores nesciunt rem consequuntur ut quis assumenda dolorem suscipit quas eveniet tenetur. Modi, cupiditate esse non cum alias recusandae veritatis incidunt! Harum, temporibus id modi laboriosam quod numquam, reiciendis totam eligendi consequuntur quae quis culpa eos sit, deserunt illum omnis. Dolores voluptas repellendus adipisci ipsa, aspernatur, natus vel necessitatibus deserunt magni aliquid sint tenetur quod dicta vero autem reiciendis debitis eos nulla deleniti rem? Enim deserunt voluptatibus ab mollitia numquam eveniet debitis, reprehenderit earum repellendus consequuntur vel suscipit explicabo eaque! Laboriosam recusandae unde nisi incidunt pariatur veritatis minima, nihil dolores harum reprehenderit neque beatae similique libero explicabo excepturi qui, rerum ipsum! Voluptatum debitis quas itaque sequi.</p>
+        </div>
+
+        <div class="contact">
+            <div class="contact-details">
+                <img src="images/dog.jpg" alt="">
+                <div class="contact-details-text">
+                    <h3>Owner Name</h3>
+                    <p>Owner</p>
+                </div>
+            </div>
+            <button class="btn">Contact Me</button>
+        </div>
+
+   </div>
+</body>
+</html>
